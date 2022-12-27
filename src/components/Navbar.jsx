@@ -1,12 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { close, logo, menu } from '../assets';
 import { navLinks } from '../constants';
+import gsap, { Power3 } from 'gsap';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  let navMenu = useRef(null);
+
+  useEffect(() => {
+    gsap.to(
+      navMenu,
+      {
+        opacity: 1,
+        y: 0,
+        ease: Power3.easeOut,
+        duration: .8,
+      }
+    )
+  },[]);
 
   return (
-    <nav className='w-full flex py-6 justify-between items-center navbar'>
+    <nav className='w-full flex py-6 justify-between items-center navbar opacity-0 -translate-y-full' ref={el => { navMenu = el }}>
       <img src={logo} alt="Hoobank" className="w-[124px] h-[32px]" />
 
       <ul className='list-none sm:flex hidden justify-end items-center flex-1'>
