@@ -28,7 +28,7 @@ const Business = () => {
   const intersection = useIntersection(sectionRef, {
     root: null,
     rootMargin: '0px',
-    threshold: 0.2,
+    threshold: 0.1,
   });
 
 
@@ -38,7 +38,7 @@ const Business = () => {
       {
         duration: 1,
         opacity: 1,
-        y: -60,
+        y: 0,
         ease: Power3.easeOut,
         stagger: {
           amount: 1
@@ -57,27 +57,27 @@ const Business = () => {
       })
   };
 
-  if (intersection && intersection.intersectionRatio > 0.2) {
+  if (intersection && intersection.intersectionRatio > 0.1) {
     fadeIn('.fadeIn')
   }
 
   return (
 
     <section id='features' className={`${layout.section}`} >
-      <div className={`${layout.sectionInfo} fadeIn opacity-0`} ref={sectionRef}>
-        <h2 className={`${styles.heading2} fadeIn opacity-0`}>
+      <div className={`${layout.sectionInfo} fadeIn opacity-0 translate-y-28`} ref={sectionRef}>
+        <h2 className={`${styles.heading2} fadeIn opacity-0 translate-y-28`}>
           You do the business,<br className='sm:block hidden' />we'll handle the money.
         </h2>
-        <p className={`${styles.paragraph} max-w-[470px] fadeIn opacity-0`}>
+        <p className={`${styles.paragraph} max-w-[470px] fadeIn opacity-0 translate-y-28`}>
           With the right credit card, you can improve your financial life by building credit, earning rewards and saving money. But with hundreds of credit cards on the market.
         </p>
 
-        <Button styles="mt-10 fadeIn opacity-0" />
+        <Button styles="mt-10 fadeIn opacity-0 translate-y-28" />
       </div>
 
-      <div className={`${layout.sectionImg} flex-col fadeIn opacity-0`} ref={sectionRef}>
+      <div className={`${layout.sectionImg} flex-col fadeIn opacity-0 translate-y-28`} ref={sectionRef}>
         {features.map((feature, index) => (
-          <FeatureCard key={feature.id} {...feature} index={index} fadeIn="fadeIn opacity-0"/>
+          <FeatureCard key={feature.id} {...feature} index={index} fadeIn="fadeIn opacity-0 translate-y-28"/>
         ))}
       </div>
 
